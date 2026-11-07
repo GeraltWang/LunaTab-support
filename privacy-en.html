@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en" class="scrollbar-thin">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      name="description"
+      content="LunaTab privacy policy: local data, Site Icons, web search, optional WebDAV backups and sync, permissions and data deletion."
+    />
+    <title>LunaTab privacy policy</title>
+    <link rel="stylesheet" href="privacy.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <nav aria-label="Policy language">
+          <ul>
+            <li><a href="privacy.html" lang="zh-CN" hreflang="zh-CN">简体中文</a></li>
+            <li><span lang="en" aria-current="page">English</span></li>
+          </ul>
+        </nav>
+        <p class="meta">LunaTab</p>
+        <h1>Privacy policy</h1>
+        <p class="meta">
+          Effective: <time datetime="2026-10-13">October 13, 2026</time> · Last updated:
+          <time datetime="2026-11-04">November 4, 2026</time>
+        </p>
+        <p>
+          This policy applies to the LunaTab browser extension. LunaTab helps you manage saved
+          webpages, Folders, layouts and Widgets on your new-tab page. It also provides search,
+          bookmark imports, local backups and optional WebDAV backups and sync that you choose to
+          enable.
+        </p>
+      </header>
+      <div class="summary">
+        Workspace data is stored on your device by default. LunaTab has no developer-operated
+        account, data upload, advertising or usage analytics service. Site Icons load from their
+        source websites. Web searches send the terms you submit to your chosen search engine. Backup
+        or sync data is sent to your chosen server only after you connect WebDAV.
+      </div>
+      <nav aria-label="Privacy policy contents">
+        <ul>
+          <li><a href="#data">Data we process</a></li>
+          <li><a href="#network">Network requests and recipients</a></li>
+          <li><a href="#permissions">Extension permissions</a></li>
+          <li><a href="#retention">Retention and deletion</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <section aria-labelledby="data">
+        <h2 id="data">1. Data we process and why</h2>
+        <ul>
+          <li>
+            <strong>Workspace content:</strong> Bookmark URLs, titles, icons and crop settings,
+            saved times, Folders, archived content, Grid Pages, layouts, Widget settings and
+            preferences you enter or import are used to display, organize, search and recover your
+            workspace.
+          </li>
+          <li>
+            <strong>Last Opened:</strong> LunaTab records when you open a Bookmark from LunaTab for
+            Resurface and to sync Bookmark state. Turning off Resurface stops its suggestions but
+            does not stop Last Opened from being recorded.
+          </li>
+          <li>
+            <strong>Current page and icons:</strong> When you open the toolbar popup, the extension
+            uses temporary access to the current page to read its URL, title and declared icon
+            information so you can save a Bookmark. When adding or editing a Bookmark on the new-tab
+            page, icon discovery from a URL requires website access permission first. The extension
+            parses the returned HTML to extract only icon addresses, types, sizes and related
+            information; it does not save the full page HTML. Loading and displaying icons follows
+            the network request rules below. The extension does not scan tabs in the background or
+            build a browsing history database.
+          </li>
+          <li>
+            <strong>Imported content:</strong> LunaTab reads bookmarks, Folders and supported
+            settings only after you choose to read Chrome bookmarks and grant permission, or select
+            an HTML, Infinity or LunaTab backup file. This supports import previews and recovery.
+            Files are parsed on your device; original files are not uploaded. Imported workspace
+            content is subject to any WebDAV backup and sync settings you have enabled.
+          </li>
+          <li>
+            <strong>Random identifiers:</strong> A locally generated identity Token and avatar seed
+            display local user information. They are not a login account or authentication key, are
+            not sent to the developer and are excluded from workspace backups. A separate random
+            device identifier distinguishes WebDAV device files. It is sent to your chosen server
+            with remote backups and sync metadata. It does not use hardware serial numbers or
+            browser fingerprinting.
+          </li>
+          <li>
+            <strong>WebDAV connection details:</strong> The server address, username and password
+            you enter are used for verification, backups, downloads and sync. Connection details are
+            kept in local extension storage and excluded from exported backups and remote workspace
+            files. Authentication requests send the username and password to your chosen server.
+          </li>
+          <li>
+            <strong>Local operating state:</strong> Interface language preferences, onboarding
+            status, local history snapshots and metadata such as sync versions, conflicts and
+            deletion records maintain the interface, recover content and coordinate multi-device
+            sync. Interface language stays on this device and is excluded from workspace backups and
+            sync. Metadata needed for sync is sent to the connected WebDAV server.
+          </li>
+        </ul>
+        <p>
+          LunaTab does not read Chrome’s full browsing history or collect unrelated page content,
+          form input, passwords or private communications. It does not include analytics SDKs,
+          tracking pixels, advertising identifiers or advertising cookies. Content you save or
+          import may still contain personal information. Manage Bookmarks, backups and server access
+          according to their sensitivity.
+        </p>
+      </section>
+      <section aria-labelledby="network">
+        <h2 id="network">2. Network requests and data recipients</h2>
+        <h3>Websites and icon sources</h3>
+        <p>
+          The first time you choose to get Site Icons or verify or connect WebDAV, LunaTab requests
+          access to all HTTP/HTTPS websites together. Once granted, entering or editing URLs for
+          different websites automatically requests those pages for icon discovery, without
+          requesting permission again for each domain. Without permission, pages are not requested
+          and you can still save Bookmarks with Text Icons. The toolbar popup uses temporary access
+          to the current page to read declared icons. When icons are loaded, checked or displayed,
+          the website and its declared image servers or CDNs receive the request URL, IP address and
+          standard HTTP request information. Saved Site Icons may load again when you open a new
+          tab, and thumbnails are cached locally. Requests for webpages and same-origin icon
+          manifests use that website’s browser session and may carry its existing cookies to
+          discover icons that require a session. The extension does not read or save cookies.
+          Cross-origin icon manifests and icon thumbnail requests use
+          <code>credentials: omit</code> and do not carry website login credentials. Image display
+          and size checks use ordinary image loading and follow browser network, cookie and website
+          rules. No extra website read permission is requested for image sources or CDNs. LunaTab
+          does not send your full Bookmark list to an icon service.
+        </p>
+        <h3>Search engines and websites you open</h3>
+        <p>
+          Searching saved Bookmarks happens locally. Only when you submit a web search are terms
+          sent through a search URL to your chosen Google, Microsoft Bing or Baidu service. Web,
+          image, video, news and map categories are supported. Your engine preference is stored
+          locally and included in workspace backups and multi-device sync. LunaTab does not change
+          the browser’s default search settings, provide remote search suggestions, send search
+          terms to the developer or persistently save them. After you open a search result or
+          Bookmark, that website processes network information, cookies and content as part of
+          normal browsing.
+        </p>
+        <p>
+          Search services are governed by the
+          <a href="https://policies.google.com/privacy" rel="noreferrer">Google Privacy Policy</a>,
+          <a href="https://www.microsoft.com/privacy/privacystatement" rel="noreferrer"
+            >Microsoft Privacy Statement</a
+          >
+          and
+          <a href="https://www.baidu.com/duty/yinsiquan.html" rel="noreferrer"
+            >Baidu Privacy Policy</a
+          >, respectively. Icon services and other websites you open have their own privacy
+          policies.
+        </p>
+        <h3>Your chosen WebDAV server</h3>
+        <p>
+          This feature is not connected to any server by default. The first time you click Verify or
+          Connect, LunaTab requests website access for the server you specify. Denying permission
+          prevents credentials from being sent. After permission is granted, Verify sends
+          authentication details, checks or creates the LunaTab directory, and reads, writes and
+          deletes test files. Connect also saves connection details locally and automatically
+          uploads local workspace history snapshots. When multi-device sync is enabled, workspace
+          content, layouts, Last Opened times and sync metadata are exchanged automatically between
+          devices using the same directory. The server operator and anyone with access to that
+          directory may read these files. Retention, logging, processing locations and privacy rules
+          depend on your chosen service. The LunaTab developer does not receive this data as an
+          intermediary.
+        </p>
+        <p>
+          Workspace backup and sync files exclude WebDAV passwords, the local identity Token and the
+          avatar seed. Backup and sync files have no end-to-end encryption; integrity checks are not
+          encryption. Use a trusted server, restricted directory access and dedicated credentials.
+        </p>
+        <h3>Support and the policy website</h3>
+        <p>
+          When you contact the developer, the recipient receives the contact details, questions and
+          attachments you submit, solely to handle your request. Do not send passwords, credentials
+          or full backups containing private information. The policy bundled with the extension can
+          be read offline and loads no external scripts, fonts, images, analytics services or
+          cookies. The public version is hosted on GitHub Pages. When you read it there, GitHub
+          receives the page URL, IP address and standard page access and server log information,
+          handled under the
+          <a
+            href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+            rel="noreferrer"
+            >GitHub General Privacy Statement</a
+          >. The developer has not added analytics to this page.
+        </p>
+      </section>
+      <section aria-labelledby="permissions">
+        <h2 id="permissions">3. Why these permissions are needed</h2>
+        <ul>
+          <li>
+            <strong>storage:</strong> Saves the workspace, preferences, history, random identifiers
+            and your WebDAV connection details locally.
+          </li>
+          <li>
+            <strong>activeTab:</strong> Reads the current page’s URL and title to create a Bookmark
+            when you click the extension toolbar button.
+          </li>
+          <li>
+            <strong>scripting:</strong> Runs code bundled with the extension on the current page
+            after you open the toolbar popup, to read declared Site Icons.
+          </li>
+          <li>
+            <strong>bookmarks (optional):</strong> Requested only when you choose to read Chrome
+            bookmarks, to read the bookmark tree and preview an import. LunaTab does not modify or
+            delete existing Chrome bookmarks.
+          </li>
+          <li>
+            <strong>HTTP/HTTPS website access (optional):</strong> Access to all websites is not
+            granted at installation. The first icon discovery or WebDAV verification or connection
+            requests access to all HTTP/HTTPS websites together, shared by icon discovery and
+            WebDAV. Changing domains then needs no further permission request. Access covers all
+            HTTP/HTTPS hosts, subdomains, paths and ports. LunaTab’s WebDAV requests still access
+            only LunaTab files in the configured directory. Ordinary image display does not need
+            this permission. Ordinary webpage and image URLs may use HTTP, which lacks TLS
+            protection; prefer HTTPS sources.
+          </li>
+        </ul>
+        <p>
+          You can revoke granted website access or optional bookmark permission in Chrome’s
+          extension settings. Revoking website access stops webpage icon discovery. WebDAV
+          authentication requests check permission before sending; missing permission stops
+          transfers and prompts you to reconnect. LunaTab uses bundled code and does not download or
+          execute remote scripts. Remote webpages and WebDAV files are treated as data.
+        </p>
+      </section>
+      <section aria-labelledby="retention">
+        <h2 id="retention">4. Retention, access and deletion</h2>
+        <ul>
+          <li>
+            <strong>Local content:</strong> Stored in the extension’s local storage
+            (<code>chrome.storage.local</code>) within the current browser profile. Icon thumbnails
+            are stored in the extension’s Cache API cache. Workspace content remains until you
+            change it or uninstall the extension. Ordinary local history keeps the latest three
+            snapshots, rotating older ones as new snapshots are added. Content from before an
+            all-device recovery and other devices’ unsynced changes are saved as separate sync
+            protection copies. These are not automatically cleaned up; you can export or manually
+            delete them in local history. Unused icon thumbnails are removed during cache cleanup.
+          </li>
+          <li>
+            <strong>Remote content:</strong> Ordinary WebDAV history keeps the latest three
+            snapshots per device, rotating after successful uploads and cleanup. Sync state files,
+            all-device recovery markers and protection snapshots from before sync are not subject to
+            this three-snapshot limit and may retain old content, deletion records or conflicts.
+            Server backups and logs follow your service provider’s rules.
+          </li>
+          <li>
+            <strong>Access and export:</strong> View and edit the workspace in the extension. In
+            Settings → Backup, export a LunaTab backup or HTML bookmark file and view local history
+            and connected remote history. With sync enabled, recovering from a file, local history
+            or remote history makes all synced devices adopt the selected backup. This requires a
+            network connection; other devices apply the recovery on their next sync after protecting
+            unsynced changes. With sync disabled, recovery affects only this device. You control
+            exported files; they have no additional application-level encryption.
+          </li>
+          <li>
+            <strong>Support requests:</strong> Public Issues and comments you submit remain in the
+            GitHub support repository until deleted or handled under platform rules. You can edit
+            your submissions, delete your own comments and ask maintainers to delete related Issues.
+            Copies and service logs retained separately by GitHub are subject to its privacy
+            statement.
+          </li>
+          <li>
+            <strong>Stop remote transfers:</strong> Turning off multi-device sync in Settings →
+            Backup stops sync; remote history backups still run while WebDAV is connected.
+            Disconnecting WebDAV stops future backups and sync and removes the locally saved server
+            address, username and password. Disconnecting does not delete the local workspace,
+            random device identifier or uploaded files. Website permissions already granted by the
+            browser remain and can be revoked in Chrome’s extension settings; icon discovery for the
+            same site may also use this permission. If you only verify without connecting,
+            credentials are not saved to extension storage. Form input remains until you clear it or
+            close Settings.
+          </li>
+          <li>
+            <strong>Delete all data:</strong> Archiving or removing content from the current
+            workspace does not delete its copies in history snapshots. To remove all data, first
+            disconnect WebDAV on every connected device, uninstall the extension to remove its data
+            from that browser, and separately delete exported files and the history, sync state,
+            recovery markers and protection snapshots in the WebDAV LunaTab directory. Ask your
+            provider to delete any additional server copies or logs. The developer cannot access or
+            delete these local or remote files for you.
+          </li>
+        </ul>
+      </section>
+      <section aria-labelledby="security">
+        <h2 id="security">5. Data security</h2>
+        <p>
+          Remote WebDAV connections require HTTPS. HTTP is allowed only for local testing on
+          localhost and 127.0.0.1. WebDAV sends credentials using HTTP Basic Authentication over
+          that connection; HTTPS encrypts data in transit. WebDAV requests send no website cookies
+          and reject redirects. If your service redirects, use its final HTTPS directory URL. Local
+          extension storage is accessible only to trusted extension contexts, not scripts in
+          webpages. Local extension storage, exported files and WebDAV files have no additional
+          application-level encryption, and the extension does not store passwords in the system
+          password vault. Their security also depends on protecting your device, browser profile,
+          server and access permissions.
+        </p>
+        <p>
+          Choose a trusted server, protect your device and backups, use dedicated or app passwords
+          and avoid saving unnecessary sensitive information.
+        </p>
+      </section>
+      <section aria-labelledby="limited-use">
+        <h2 id="limited-use">6. Data use and Limited Use statement</h2>
+        <p>
+          LunaTab’s use of user data, including information obtained through Chrome / Google APIs,
+          complies with the
+          <a
+            href="https://developer.chrome.com/docs/webstore/program-policies/policies"
+            rel="noreferrer"
+            >Chrome Web Store User Data Policy</a
+          >, including the
+          <a
+            href="https://developer.chrome.com/docs/webstore/program-policies/limited-use"
+            rel="noreferrer"
+            >Limited Use requirements</a
+          >. Data is used only for the new-tab workspace features described in this policy and their
+          necessary operation.
+        </p>
+        <p>
+          LunaTab does not sell user data or provide it to advertising platforms, data brokers or
+          information resellers. It is not used for personalized advertising, credit assessments,
+          lending or analysis unrelated to the extension’s purpose. The developer does not access
+          your local or WebDAV workspace through the extension. If specific content is needed for a
+          support request, the developer will first obtain your explicit consent and use only the
+          necessary information you choose to provide. Any other legally required processing remains
+          subject to applicable law and the policies above.
+        </p>
+      </section>
+      <section aria-labelledby="updates">
+        <h2 id="updates">7. Policy updates</h2>
+        <p>
+          When features or data handling change, we will update this policy and its date and keep
+          Chrome Web Store privacy disclosures consistent with actual behavior. If new data uses,
+          recipients or permissions are introduced, we will explain them clearly in the extension
+          and obtain any required authorization before that processing occurs.
+        </p>
+      </section>
+      <section aria-labelledby="contact">
+        <h2 id="contact">8. Contact</h2>
+        <p>
+          LunaTab is provided and maintained by GitHub user GeraltWang. For questions about this
+          policy, data handling or privacy requests, contact the publisher through
+          <a href="https://github.com/GeraltWang/LunaTab-support/issues" rel="noreferrer"
+            >LunaTab GitHub Issues</a
+          >. Reading the support page does not require signing in. Submitting an issue requires a
+          GitHub account and is subject to GitHub’s privacy rules.
+        </p>
+        <p>
+          Issues are public. State only the extension name and request type; do not post passwords,
+          contact details or private data that has not been redacted. If your request requires
+          private information, first ask for an appropriate private contact channel, then share the
+          minimum necessary information after both parties agree.
+        </p>
+      </section>
+      <footer>
+        This policy describes only the LunaTab extension’s data handling. It does not replace the
+        privacy policies of websites, search engines or storage services you choose.
+      </footer>
+    </main>
+  </body>
+</html>

@@ -9,143 +9,24 @@
       content="LunaTab 隐私政策：本地数据、网站图标、网页搜索、可选 WebDAV 备份与同步、权限及数据删除。"
     />
     <title>LunaTab 隐私政策</title>
-    <!-- Self-contained so the same file works offline in the extension and on a public website. -->
-    <style>
-      :root {
-        color-scheme: light dark;
-        --background: oklch(1 0 0);
-        --foreground: oklch(0.153 0.006 107.1);
-        --muted: oklch(0.966 0.005 106.5);
-        --muted-foreground: color-mix(in oklab, var(--foreground) 80%, var(--background));
-        --border: oklch(0.93 0.007 106.5);
-        --ring: oklch(0.737 0.021 106.9);
-        font-family: 'Inter Variable', system-ui, sans-serif;
-        background: var(--background);
-        color: var(--foreground);
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --background: oklch(0.153 0.006 107.1);
-          --foreground: oklch(0.988 0.003 106.5);
-          --muted: oklch(0.286 0.016 107.4);
-          --border: oklch(1 0 0 / 10%);
-          --ring: oklch(0.58 0.031 107.3);
-        }
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-size: 14px;
-        line-height: 1.8;
-      }
-      main {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 48px 24px;
-      }
-      header {
-        margin-bottom: 32px;
-      }
-      h1 {
-        margin: 0 0 8px;
-        font-size: 24px;
-        line-height: 1.4;
-        letter-spacing: -0.025em;
-      }
-      h2 {
-        margin: 32px 0 12px;
-        font-size: 18px;
-        line-height: 1.5;
-      }
-      h3 {
-        margin: 20px 0 8px;
-        font-size: 14px;
-      }
-      p {
-        margin: 8px 0;
-      }
-      ul {
-        margin: 8px 0;
-        padding-left: 24px;
-      }
-      li + li {
-        margin-top: 8px;
-      }
-      a {
-        color: inherit;
-        text-underline-offset: 4px;
-        overflow-wrap: anywhere;
-      }
-      a:focus-visible {
-        outline: 2px solid var(--ring);
-        outline-offset: 4px;
-        border-radius: 4px;
-      }
-      .meta,
-      footer {
-        color: var(--muted-foreground);
-        font-size: 12px;
-      }
-      .summary {
-        padding: 16px;
-        background: var(--muted);
-        border-radius: 16px;
-      }
-      nav ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px 24px;
-        padding: 0;
-        list-style: none;
-      }
-      nav li + li {
-        margin: 0;
-      }
-      footer {
-        margin-top: 32px;
-        padding-top: 16px;
-        border-top: 1px solid var(--border);
-      }
-      .scrollbar-thin {
-        scrollbar-width: thin;
-        scrollbar-color: var(--border) transparent;
-      }
-      .scrollbar-thin::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
-      }
-      .scrollbar-thin::-webkit-scrollbar-thumb {
-        background: var(--border);
-        border-radius: 3px;
-      }
-      .scrollbar-thin::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      @media (max-width: 480px) {
-        main {
-          padding: 24px 16px;
-        }
-      }
-      @media print {
-        nav {
-          display: none;
-        }
-        main {
-          max-width: none;
-          padding: 0;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="privacy.css" />
   </head>
   <body>
     <main>
       <header>
-        <p class="meta">LunaTab · Privacy policy</p>
+        <nav aria-label="政策语言">
+          <ul>
+            <li><span lang="zh-CN" aria-current="page">简体中文</span></li>
+            <li><a href="privacy-en.html" lang="en" hreflang="en">English</a></li>
+          </ul>
+        </nav>
+        <p class="meta">LunaTab</p>
         <h1>隐私政策</h1>
         <p class="meta">
-          生效日期及最后更新：<time datetime="2026-10-12">2026 年 10 月 12 日</time>
+          生效日期：<time datetime="2026-10-13">2026 年 10 月 13 日</time> · 最后更新：<time
+            datetime="2026-11-04"
+            >2026 年 11 月 4 日</time
+          >
         </p>
         <p>
           本政策适用于 LunaTab 浏览器扩展。LunaTab
@@ -207,9 +88,9 @@
           </li>
           <li>
             <strong>本地运行状态：</strong
-            >引导完成状态、适配布局的行数、本地历史快照及同步版本、冲突、删除记录等元数据，
-            用于保持界面状态、恢复内容和协调多设备同步。同步所需的元数据会发送到已连接的 WebDAV
-            服务器。
+            >界面语言偏好、引导完成状态、本地历史快照及同步版本、冲突、删除记录等元数据，
+            用于保持界面状态、恢复内容和协调多设备同步。界面语言仅保存在本机，不进入工作区备份或同步；同步所需的元数据会发送到已连接的
+            WebDAV 服务器。
           </li>
         </ul>
         <p>
@@ -223,13 +104,15 @@
         <h2 id="network">2. 网络请求与数据接收方</h2>
         <h3>网站及图标来源</h3>
         <p>
-          首次获取某个网站的图标时，你需要点击“获取网站图标”并授予该网站的访问权限；
-          以后填写或编辑已授权网站的网址时，会自动请求该网页以发现图标。
+          首次点击“获取网站图标”或验证、连接 WebDAV 时，会一次申请所有 HTTP/HTTPS 网站的访问权限；
+          允许后，填写或编辑不同网站的网址时，会自动请求该网页以发现图标，不再按域名重复授权。
           未授权时不会请求网页，你仍可保存文字图标书签。工具栏弹窗使用临时的当前页权限读取声明的图标。
           加载、检查或显示网站图标时，目标网站及其声明的图片服务器或 CDN 会收到请求 URL、IP
           地址及常规 HTTP 请求信息。
           已保存的网站图标可能在以后打开新标签页时继续加载，并会在本机缓存缩略图。
-          通过网址获取网页和生成图标缩略图的请求使用 credentials: omit，不携带网页登录凭据；
+          通过网址获取网页及同源图标清单时，会使用浏览器中该网站的会话，可能携带请求目标网站已有的
+          Cookie，以发现需要会话的网站图标；扩展不读取或保存 Cookie。
+          跨域图标清单和生成图标缩略图的请求使用 credentials: omit，不携带网页登录凭据；
           图片显示及尺寸检查使用普通图片加载，适用浏览器的网络、Cookie 及网站规则， 不为图片来源或
           CDN 额外申请网站读取权限。LunaTab 不把你的全部书签列表发送给图标服务。
         </p>
@@ -299,9 +182,9 @@
           </li>
           <li>
             <strong>HTTP / HTTPS 网站访问（可选）：</strong
-            >安装时不授予所有网站访问权限。仅在你点击获取网站图标或验证、连接 WebDAV 时，
-            申请当前选择的协议及主机名，不申请全部网站或子域。 Chrome
-            网站授权覆盖该主机的所有路径和端口，不能限制为某个 WebDAV 目录； LunaTab 的 WebDAV
+            >安装时不授予所有网站访问权限。首次点击获取网站图标或验证、连接 WebDAV 时， 一次申请所有
+            HTTP/HTTPS 网站的访问权限，供图标发现与 WebDAV 共用，之后换域名无需重复授权。
+            授权覆盖所有 HTTP/HTTPS 主机、子域、路径和端口； LunaTab 的 WebDAV
             请求仍只访问配置目录中的 LunaTab 文件。 普通图片显示不需要此权限。普通网址和图片可能使用
             HTTP，传输不受 TLS 保护；请优先使用 HTTPS 来源。
           </li>

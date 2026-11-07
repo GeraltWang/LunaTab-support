@@ -1,0 +1,126 @@
+:root {
+  color-scheme: light dark;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.153 0.006 107.1);
+  --muted: oklch(0.966 0.005 106.5);
+  --muted-foreground: color-mix(in oklab, var(--foreground) 80%, var(--background));
+  --border: oklch(0.93 0.007 106.5);
+  --ring: oklch(0.737 0.021 106.9);
+  font-family: 'Inter Variable', system-ui, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.153 0.006 107.1);
+    --foreground: oklch(0.988 0.003 106.5);
+    --muted: oklch(0.286 0.016 107.4);
+    --border: oklch(1 0 0 / 10%);
+    --ring: oklch(0.58 0.031 107.3);
+  }
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+header {
+  margin-bottom: 32px;
+}
+h1 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+h2 {
+  margin: 32px 0 12px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+h3 {
+  margin: 20px 0 8px;
+  font-size: 14px;
+}
+p {
+  margin: 8px 0;
+}
+ul {
+  margin: 8px 0;
+  padding-left: 24px;
+}
+li + li {
+  margin-top: 8px;
+}
+a {
+  color: inherit;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+a:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.meta,
+footer {
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+.summary {
+  padding: 16px;
+  background: var(--muted);
+  border-radius: 16px;
+}
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 0;
+  list-style: none;
+}
+nav li + li {
+  margin: 0;
+}
+footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+@media (max-width: 480px) {
+  main {
+    padding: 24px 16px;
+  }
+}
+@media print {
+  nav {
+    display: none;
+  }
+  main {
+    max-width: none;
+    padding: 0;
+  }
+}
